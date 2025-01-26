@@ -8,11 +8,12 @@ app.use(express.json());
 const PORT = process.env.PORT || 5500;
 
 // app.use(cors({
-//     origin: ["https://deploy-mern-1whq.vercel.app"],
-//     methods: ["POST", "GET", "PATCH"],
-//     credentials: true,
+//   origin: ["http://localhost:3000", "https://deploy-mern-1whq.vercel.app"], // Replace with your frontend's Vercel URL
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   credentials: true,
 // }));
 app.use(cors());
+
 
 const TodoItemRoute = require('./routes/todoItems');
 
