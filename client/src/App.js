@@ -17,7 +17,7 @@ function App() {
         toast.error("Cannot have a blank task!");
         return;
       }
-      const res = await axios.post('http://localhost:5500/api/item', { item: text });
+      const res = await axios.post('https://trial-rnjz.onrender.com/api/item', { item: text });
       setListItems((prev) => [...prev, res.data]);
       setText('');
     } catch (err) {
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const getItemsList = async () => {
       try {
-        const res = await axios.get('http://localhost:5500/api/items');
+        const res = await axios.get('https://trial-rnjz.onrender.com/api/items');
         setListItems(res.data);
       } catch (err) {
         console.log(err);
@@ -39,7 +39,7 @@ function App() {
 
   const deleteItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:5500/api/item/${id}`);
+      await axios.delete(`https://trial-rnjz.onrender.com/api/item/${id}`);
       const newList = listItems.filter((i) => i._id !== id);
       setListItems(newList);
     } catch (err) {
@@ -49,7 +49,7 @@ function App() {
 
   const updateItem = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:5500/api/item/${id}`, { item: updatedText });
+      const res = await axios.put(`https://trial-rnjz.onrender.com/api/item/${id}`, { item: updatedText });
       const updatedList = listItems.map((item) =>
         item._id === id ? { ...item, item: updatedText } : item
       );
